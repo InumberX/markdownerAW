@@ -12,15 +12,19 @@ let second = now.getSeconds();
 second = ('0' + second).slice(-2);
 const cashBuster = '?ver=' + year + month + day + hour + minute + second;
 
+const srcDir = 'tools/mkd/';
+const baseDir = '/' + srcDir;
+
 export default {
  mode: 'universal',
  env: {
   cashBuster: cashBuster
  },
- srcDir: 'tools/markdMemo/',
+ srcDir: srcDir,
  router: {
   linkActiveClass: 'active',
   linkExactActiveClass: 'exact-active',
+  base: baseDir,
   // ページ遷移時の設定
   scrollBehavior: function(to, from, savedPosition) {
    // トップまでスクロールする
@@ -31,10 +35,13 @@ export default {
   ** Headers of the page
   */
  head: {
-  titleTemplate: '%s | markdMemo',
+  titleTemplate: '%s | mkDowner',
   htmlAttrs: {
    lang: 'ja',
    prefix: 'og: http://ogp.me/ns#'
+  },
+  base: {
+   href: 'router.base'
   },
   meta: [
    {
@@ -58,12 +65,12 @@ export default {
     hid: 'description',
     name: 'description',
     content:
-     'マークダウンエディタ「markdMemo」のページです。マークダウン形式でのテキストの作成・保存ができます。どなたでも無料でご利用いただけます。'
+     'マークダウンエディタ「mkDowner（マークダウナー）」です。マークダウン形式でのテキストの作成・保存ができます。'
    },
    {
     hid: 'ogTitle',
     property: 'og:title',
-    content: 'markdMemo | After Works.'
+    content: 'mkDowner'
    },
    {
     hid: 'ogType',
@@ -73,23 +80,23 @@ export default {
    {
     hid: 'ogUrl',
     property: 'og:url',
-    content: 'https://afterworks.jp/tools/markdMemo/'
+    content: 'https://afterworks.jp/' + srcDir
    },
    {
     hid: 'ogImage',
     property: 'og:image',
-    content: 'https://afterworks.jp/img/img_og_1.png'
+    content: 'https://afterworks.jp/' + srcDir + 'img/img_og_1.png'
    },
    {
     hid: 'ogSiteName',
     property: 'og:site_name',
-    content: 'After Works.'
+    content: 'mkDowner'
    },
    {
     hid: 'ogDescription',
     property: 'og:description',
     content:
-     'マークダウンエディタ「markdMemo」のページです。マークダウン形式でのテキストの作成・保存ができます。どなたでも無料でご利用いただけます。'
+     'マークダウンエディタ「mkDowner（マークダウナー）」です。マークダウン形式でのテキストの作成・保存ができます。'
    },
    {
     hid: 'twitterCard',
@@ -105,7 +112,7 @@ export default {
     hid: 'twitterDescription',
     name: 'twitter:description',
     content:
-     'マークダウンエディタ「markdMemo」のページです。マークダウン形式でのテキストの作成・保存ができます。どなたでも無料でご利用いただけます。'
+     'マークダウンエディタ「mkDowner（マークダウナー）」です。マークダウン形式でのテキストの作成・保存ができます。'
    }
   ],
   link: [
@@ -129,30 +136,30 @@ export default {
    {
     hid: 'canonical',
     rel: 'canonical',
-    href: 'https://afterworks.jp/tools/markdMemo/'
+    href: 'https://afterworks.jp/' + srcDir
    }
   ],
   script: [
    {
-    src: '/js/scroll-magic.min.js' + cashBuster,
+    src: baseDir + 'js/scroll-magic.min.js' + cashBuster,
     type: 'text/javascript',
     body: false,
     defer: true
    },
    {
-    src: '/js/smooth-scroll.polyfills.min.js' + cashBuster,
+    src: baseDir + 'js/smooth-scroll.polyfills.min.js' + cashBuster,
     type: 'text/javascript',
     body: false,
     defer: true
    },
    {
-    src: '/js/marked.min.js' + cashBuster,
+    src: baseDir + 'js/marked.min.js' + cashBuster,
     type: 'text/javascript',
     body: false,
     defer: true
    },
    {
-    src: '/js/simplemde.min.js' + cashBuster,
+    src: baseDir + 'js/simplemde.min.js' + cashBuster,
     type: 'text/javascript',
     body: false,
     defer: true
@@ -163,7 +170,7 @@ export default {
   ** Customize the progress-bar color
   */
  loading: {
-  color: '#002984',
+  color: '#0f8775',
   height: '4px'
  },
  /*

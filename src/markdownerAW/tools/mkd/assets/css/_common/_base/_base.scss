@@ -1,0 +1,254 @@
+/* 共通 ========== */
+html {
+ width: 100%;
+ height: 100%;
+ line-height: 1;
+ background-color: $palette-white--1;
+ color: $palette-black--1;
+ font-size: 62.5%;
+}
+body {
+ width: 100%;
+ min-height: 100%;
+ margin: 0;
+ padding: 0;
+ border: 0;
+ font-size: 1rem;
+ line-height: 1.6;
+ overflow-y: scroll;
+ font-family: $font-family;
+ word-break: break-all;
+ -webkit-text-size-adjust: 100%;
+ background-repeat: no-repeat;
+ background-position: top center;
+ -webkit-background-size: cover;
+ background-size: cover;
+ background-attachment: fixed;
+ background-color: $palette-white--1;
+ &.is-head-menu-open,
+ &.is-modal-open {
+  position: fixed;
+  left: 0;
+  width: 100%;
+  height: 100%;
+ }
+}
+
+article,
+aside,
+details,
+figcaption,
+include,
+footer,
+header,
+hgroup,
+main,
+nav,
+section,
+summary,
+figure {
+ display: block;
+ margin: 0;
+ padding: 0;
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+dl,
+dt,
+dd,
+p,
+blockquote,
+ul,
+ol,
+li {
+ margin: 1.4em 0 0.6em;
+ padding: 0;
+ font-size: 100%;
+ vertical-align: baseline;
+ -webkit-overflow-wrap: break-word;
+ -ms-overflow-wrap: break-word;
+ overflow-wrap: break-word;
+ -webkit-word-wrap: break-word;
+ -ms-word-wrap: break-word;
+ word-wrap: break-word;
+ font-size: 1.4rem;
+}
+figcaption,
+span {
+ -webkit-overflow-wrap: break-word;
+ -ms-overflow-wrap: break-word;
+ overflow-wrap: break-word;
+ -webkit-word-wrap: break-word;
+ -ms-word-wrap: break-word;
+ word-wrap: break-word;
+}
+p {
+ font-size: 1.6rem;
+ margin: 8px 0;
+}
+audio,
+canvas,
+progress,
+video {
+ display: inline-block;
+ vertical-align: baseline;
+}
+audio:not([controls]) {
+ display: none;
+ height: 0;
+}
+[hidden],
+template {
+ display: none;
+}
+a {
+ transition: 0.3s color;
+ &:link {
+  color: $palette-green--1;
+  text-decoration: none;
+ }
+ &:visited {
+  color: $palette-green--1;
+  text-decoration: none;
+ }
+ &:hover,
+ &:active {
+  color: $palette-green--1;
+  text-decoration: underline;
+ }
+}
+abbr[title] {
+ border-bottom: 1px dotted;
+}
+i,
+em,
+address {
+ font-style: normal;
+}
+b,
+strong,
+em {
+ font-weight: bold;
+}
+dfn {
+ font-style: italic;
+}
+mark {
+ background: $palette-yellow;
+ color: $palette-black;
+}
+small {
+ font-size: 100%;
+}
+sub,
+sup {
+ font-size: 75%;
+ line-height: 0;
+ position: relative;
+ vertical-align: baseline;
+}
+sup {
+ top: -0.5em;
+}
+sub {
+ bottom: -0.25em;
+}
+ul,
+ol {
+ margin: 1.2em 0;
+ padding: 0 0 0 2em;
+}
+li {
+ margin: 0.4em 0;
+}
+img {
+ border: 0;
+ vertical-align: top;
+ -ms-interpolation-mode: bicubic;
+}
+svg:not(:root) {
+ overflow: hidden;
+}
+hr {
+ -moz-box-sizing: content-box;
+ box-sizing: content-box;
+ height: 0;
+}
+pre {
+ overflow: auto;
+}
+code,
+kbd,
+pre,
+samp {
+ font-family: monospace, monospace;
+ font-size: 1em;
+}
+table {
+ border-collapse: collapse;
+ border-spacing: 0;
+}
+td,
+th {
+ padding: 0;
+}
+
+/* サイト内共通 ========== */
+/* obj */
+.sp-obj {
+ display: none;
+}
+.pc-obj {
+ display: block;
+}
+
+/* clearfix */
+.clearfix {
+ &:before,
+ &:after {
+  content: '';
+  display: table;
+ }
+ &:after {
+  clear: both;
+ }
+ *zoom: 1;
+}
+
+/* wrap-all */
+.wrap-all {
+ padding: 0 0 0 8px;
+ transition: 0.3s padding;
+ &.is-header-menu-active {
+  padding-left: $header-width--pc;
+ }
+ &.is-not-transition {
+  transition: 0s padding;
+ }
+}
+
+/* main-wrap */
+.main-wrap {
+ margin: 0 auto;
+ padding: 0;
+ transition: 0.3s padding;
+ box-sizing: border-box;
+}
+
+/* inner */
+.inner {
+ margin: 0 auto;
+ width: 100%;
+ max-width: 1280px;
+ padding: 0 4%;
+ box-sizing: border-box;
+}
+
+/* wrapper */
+.wrapper {
+ min-width: 880px;
+}

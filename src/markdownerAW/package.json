@@ -1,24 +1,24 @@
 {
-  "name": "markdownerAW",
-  "version": "1.0.0",
-  "description": "My majestic Nuxt.js project",
-  "author": "InumberX",
-  "private": true,
-  "scripts": {
-    "dev": "nuxt",
-    "build": "nuxt build",
-    "start": "nuxt start",
-    "generate": "nuxt generate"
-  },
-  "dependencies": {
-    "nuxt": "^2.0.0",
-    "@nuxtjs/axios": "^5.3.6",
-    "@nuxtjs/pwa": "^3.0.0-0"
-  },
-  "devDependencies": {
-    "@nuxtjs/style-resources": "^1.0.0",
-    "node-sass": "^4.13.1",
-    "nuxt-sass-resources-loader": "^2.0.5",
-    "sass-loader": "^8.0.2"
-  }
+ "name": "mkDowner",
+ "version": "1.0.0",
+ "description": "マークダウンエディタ「mkDowner（マークダウナー）」です。マークダウン形式でのテキストの作成・保存ができます。",
+ "author": "InumberX",
+ "private": true,
+ "scripts": {
+  "dev": "nuxt",
+  "build": "nuxt build",
+  "start": "nuxt start",
+  "generate": "nuxt generate"
+ },
+ "dependencies": {
+  "nuxt": "^2.0.0",
+  "@nuxtjs/axios": "^5.3.6",
+  "@nuxtjs/pwa": "^3.0.0-0"
+ },
+ "devDependencies": {
+  "@nuxtjs/style-resources": "^1.0.0",
+  "node-sass": "^4.13.1",
+  "nuxt-sass-resources-loader": "^2.0.5",
+  "sass-loader": "^8.0.2"
+ }
 }
