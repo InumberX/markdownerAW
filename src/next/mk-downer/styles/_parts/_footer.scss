@@ -1,0 +1,21 @@
+/* フッター ========== */
+.ft-wrap {
+  margin: 40px 0 0;
+  padding: 0 0 56px;
+  border-top: 1px solid $palette-gray--1;
+}
+.ft_copy-wrap {
+  background-color: $palette-gray--2;
+  padding: 24px 0;
+}
+.ft-copy {
+  text-align: center;
+  font-size: 1.2rem;
+  margin: 0;
+  color: $palette-gray--3;
+}
+@media screen and (min-width: 480px) {
+  .ft-wrap {
+    padding-bottom: 0;
+  }
+}

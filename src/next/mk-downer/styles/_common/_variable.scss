@@ -1,0 +1,86 @@
+// フォント ==========
+// デフォルト
+$font-family: -apple-system, BlinkMacSystemFont, Lucida Grande, Helvetica, Arial,
+  "游ゴシック体", YuGothic, "游ゴシック Medium", "Yu Gothic Medium",
+  "ヒラギノ角ゴ Pro W3", "Hiragino Kaku Gothic Pro", "メイリオ", Meiryo,
+  sans-serif;
+
+// カラーパレット ==========
+$palette-white--1: #fff;
+$palette-white--2: #fbfbfb;
+
+$palette-black--1: #000;
+$palette-black--2: #3b3b3b;
+$palette-black--3: #585858;
+
+$palette-gray--1: #eaeaea;
+$palette-gray--2: #fafafa;
+$palette-gray--3: #8c8c8c;
+$palette-gray--4: #cdcdcd;
+$palette-gray--5: #ececec;
+$palette-gray--6: #6f6f6f;
+
+$palette-red--1: #e02b3d;
+
+$palette-blue--1: #0070f3;
+$palette-blue--2: #85b6f1;
+
+$palette-yellow--1: #f1f10a;
+
+// 文字カラー ==========
+$color-tx--main: $palette-black--1;
+
+$color-tx--mark: $palette-black--2;
+
+$color-tx--link: $palette-blue--1;
+$color-tx--link-hover: $palette-blue--2;
+
+$color-tx--web-font: $palette-black--1;
+
+$color-tx--styl-icon: $palette-black--1;
+
+// 背景カラー ==========
+$color-bg--main: $palette-white--1;
+
+$color-bg--mark: $palette-yellow--1;
+
+// 入力項目カラー ==========
+// 背景
+$color-input-bg: $palette-gray--6;
+// 枠線
+$color-input-border: $palette-gray--3;
+// プレイスホルダー
+$color-input-placeholder: $palette-gray--1;
+
+// Hover =====
+// 枠線
+$color-input-border--hover: $palette-gray--4;
+
+// Focus =====
+// 枠線
+$color-input-border--focus: $palette-gray--4;
+
+// disabled =====
+// 背景
+$color-input-bg--disabled: $palette-gray--5;
+// 文字
+$color-input-tx--disabled: $palette-gray--4;
+
+// readonly =====
+// 背景
+$color-input-bg--readonly: $palette-gray--2;
+// 枠線
+$color-input-border--readonly: $palette-gray--3;
+
+// 数値 ==========
+
+// z-index ==========
+// 汎用
+$z-index--1: 1;
+$z-index--2: 2;
+$z-index--3: 3;
+$z-index--4: 4;
+$z-index--5: 5;
+
+// ヘッダー
+$z-index__hd--1: 10000;

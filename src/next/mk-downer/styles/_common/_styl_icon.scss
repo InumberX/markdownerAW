@@ -1,0 +1,82 @@
+// CSSアイコン ==========
+.styl-icon {
+  position: relative;
+  display: inline-block;
+  transition: 0.3s background-color, 0.3s border-color;
+  &:before,
+  &:after {
+    transition: 0.3s background-color, 0.3s border-color;
+  }
+  /* プラス */
+  &.is-plus {
+    width: 24px;
+    height: 24px;
+    &:before,
+    &:after {
+      content: "";
+      position: absolute;
+      display: block;
+      background-color: $color-tx--styl-icon;
+    }
+    &:before {
+      width: 100%;
+      height: 4px;
+      left: 0;
+      top: 50%;
+      margin-top: -2px;
+    }
+    &:after {
+      width: 4px;
+      height: 100%;
+      left: 50%;
+      top: 0;
+      margin-left: -2px;
+    }
+  }
+  /* クロス */
+  &.is-cross {
+    width: 24px;
+    height: 24px;
+    transform: rotate(45deg);
+    &:before,
+    &:after {
+      content: "";
+      position: absolute;
+      display: block;
+      background-color: $color-tx--styl-icon;
+    }
+    &:before {
+      width: 100%;
+      height: 4px;
+      left: 0;
+      top: 50%;
+      margin-top: -2px;
+    }
+    &:after {
+      width: 4px;
+      height: 100%;
+      left: 50%;
+      top: 0;
+      margin-left: -2px;
+    }
+  }
+  /* 矢印 */
+  &.is-arrow {
+    width: 16px;
+    height: 16px;
+    border-top: 4px solid $color-tx--styl-icon;
+    border-left: 4px solid $color-tx--styl-icon;
+    &.is-up {
+      transform: rotate(45deg);
+    }
+    &.is-right {
+      transform: rotate(135deg);
+    }
+    &.is-down {
+      transform: rotate(225deg);
+    }
+    &.is-left {
+      transform: rotate(315deg);
+    }
+  }
+}

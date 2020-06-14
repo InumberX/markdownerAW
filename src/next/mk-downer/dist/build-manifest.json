@@ -1,0 +1,46 @@
+{
+  "devFiles": [],
+  "lowPriorityFiles": [
+    "static/3EKbpLi5l3lNdryasL5MQ/_buildManifest.js",
+    "static/3EKbpLi5l3lNdryasL5MQ/_ssgManifest.js"
+  ],
+  "pages": {
+    "/": [
+      "static/runtime/webpack.js.js",
+      "framework.js",
+      "commons.js",
+      "77724305a0be48b29532c71d6eca6a76d5def398.js",
+      "static/runtime/main.js.js"
+    ],
+    "/_app": [
+      "static/runtime/webpack.js.js",
+      "framework.js",
+      "commons.js",
+      "static/css/6713635e01d9743e611d.css",
+      "static/runtime/main.js.js"
+    ],
+    "/_error": [
+      "static/runtime/webpack.js.js",
+      "framework.js",
+      "commons.js",
+      "static/runtime/main.js.js"
+    ],
+    "/_polyfills": [
+      "static/runtime/polyfills.js.js"
+    ],
+    "/children": [
+      "static/runtime/webpack.js.js",
+      "framework.js",
+      "commons.js",
+      "77724305a0be48b29532c71d6eca6a76d5def398.js",
+      "static/runtime/main.js.js"
+    ],
+    "/index": [
+      "static/runtime/webpack.js.js",
+      "framework.js",
+      "commons.js",
+      "77724305a0be48b29532c71d6eca6a76d5def398.js",
+      "static/runtime/main.js.js"
+    ]
+  }
+}
