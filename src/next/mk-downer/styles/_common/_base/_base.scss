@@ -262,12 +262,12 @@ th {
   padding: 0 4vw;
   box-sizing: border-box;
 }
-@media screen and (min-width: 480px) {
+@media screen and (min-width: $bp-sm) {
   .inner {
     padding: 0 4.6vw 0 calc(4.6vw + 80px);
   }
 }
-@media screen and (min-width: 1000px) {
+@media screen and (min-width: $bp-lg) {
   .inner {
     padding: 0 32px 0 calc(32px + 80px);
   }

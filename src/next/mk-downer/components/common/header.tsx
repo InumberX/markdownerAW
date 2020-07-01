@@ -1,20 +1,41 @@
+import React, { useState, useEffect } from 'react';
 import Link from 'next/link';
 import { useRouter } from 'next/router';
-import * as Scroll from 'react-scroll';
 
-let scroll = Scroll.animateScroll;
+/*------------------------------------------
+ スムーススクロール
+--------------------------------------------*/
+let SmoothScroll = null;
+let smoothScroll = null;
+
+const smoothScrollOption = {
+ // スクロール位置をずらす距離
+ offset: 20,
+ // URLを書き換えるかどうか
+ updateURL: false,
+ // スクロール速度（1000pxのスクロールにかかる時間をミリ秒単位で指定）
+ speed: 300,
+ // スクロール距離を無視するかどうか
+ speedAsDuration: true,
+};
 
 function scrollToTop(e) {
  e.preventDefault();
- scroll.scrollToTop({
-  duration: 300,
- });
+ smoothScroll.animateScroll(document.body, '', smoothScrollOption);
  return false;
+}
+
+if (typeof window !== 'undefined' && typeof window.navigator !== 'undefined') {
+ SmoothScroll = require('smooth-scroll');
 }
 
 const Header = () => {
  const router = useRouter();
  const pathName = router.pathname;
+
+ useEffect(() => {
+  smoothScroll = new SmoothScroll();
+ }, []);
 
  return (
   <header className="hd-wrap">

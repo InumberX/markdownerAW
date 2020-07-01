@@ -1,3 +1,8 @@
+// ブレイクポイント ==========
+$bp-sm: 416px;
+$bp-md: 768px;
+$bp-lg: 1000px;
+
 // フォント ==========
 // デフォルト
 $font-family: -apple-system, BlinkMacSystemFont, Lucida Grande, Helvetica, Arial,
@@ -44,33 +49,30 @@ $color-bg--main: $palette-white--1;
 
 $color-bg--mark: $palette-yellow--1;
 
-// 入力項目カラー ==========
-// 背景
-$color-input-bg: $palette-gray--6;
-// 枠線
-$color-input-border: $palette-gray--3;
-// プレイスホルダー
-$color-input-placeholder: $palette-gray--1;
+/// 入力項目カラー ==========
+$color-bg--inpt: $palette-white--1;
+$color-boder--inpt: $palette-gray--4;
+$color-tx--inpt-placeholder: $palette-gray--4;
 
-// Hover =====
-// 枠線
-$color-input-border--hover: $palette-gray--4;
+$color-boder--inpt-focus: $palette-blue--1;
+$color-boder--inpt-hover: $palette-blue--1;
+$color-bg--inpt-hover: $palette-blue--1;
 
-// Focus =====
-// 枠線
-$color-input-border--focus: $palette-gray--4;
+$color-bg--inpt-disabled: $palette-gray--5;
+$color-tx--inpt-disabled: $palette-gray--6;
+$color-border--inpt-disabled: $palette-gray--5;
+$color-border--inpt-disabled-hover: $palette-gray--5;
 
-// disabled =====
-// 背景
-$color-input-bg--disabled: $palette-gray--5;
-// 文字
-$color-input-tx--disabled: $palette-gray--4;
+$color-bg--inpt-readonly: $palette-white--1;
+$color-border--inpt-readonly: $palette-gray--5;
 
-// readonly =====
-// 背景
-$color-input-bg--readonly: $palette-gray--2;
-// 枠線
-$color-input-border--readonly: $palette-gray--3;
+$color-boder--required: $palette-red--1;
+$color-tx--inpt-required: $palette-red--1;
+$color-bg--inpt-required: $palette-white--1;
+
+$color-bg--inpt-error: $palette-white--2;
+$color-tx--inpt-error: $palette-red--1;
+$color-border--inpt-error: $palette-red--1;
 
 // 数値 ==========
 

@@ -12,8 +12,17 @@
 // 共通スタイル
 @import "_common/_base/_base";
 
+// 入力項目共通スタイル
+@import "_common/_base/_base_frm";
+
 // ヘッダー
 @import "_parts/_header";
 
 // フッター
 @import "_parts/_footer";
+
+// SimpleMDE
+@import "_parts/_simplemde";
+
+// マークダウンエディター
+@import "_parts/_editor";
