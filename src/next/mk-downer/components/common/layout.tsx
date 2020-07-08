@@ -18,6 +18,10 @@ const Layout = ({ children }: { children: React.ReactNode }) => {
      content="マークダウンエディタ「mkDowner（マークダウナー）」です。マークダウン形式でのテキストの作成・保存ができます。"
     />
     <link rel="icon" href={process.env.siteRootDir + '/img/favicon.ico'} />
+    <link
+     rel="apple-touch-icon"
+     href={process.env.siteRootDir + '/img/favicon_180.png'}
+    />
    </Head>
    <div className="wrap-all">
     <Header></Header>

@@ -138,7 +138,7 @@ button {
   border: none;
   outline: none;
   transition: 0.3s background-color, 0.3s color, 0.3s border-color;
-  border-radius: 2px;
+  border-radius: 100px;
   &:hover {
     background-color: $palette-blue--2;
   }
@@ -285,6 +285,7 @@ fieldset {
   border: none;
   margin: 0;
   padding: 0;
+  min-width: 0;
 }
 
 legend {
@@ -624,7 +625,6 @@ a.sbmt-btn {
   box-sizing: border-box;
   text-align: center;
   width: auto;
-  border-radius: 8px;
   max-width: 320px;
   min-width: 220px;
   text-decoration: none;
@@ -671,10 +671,14 @@ a.sbmt-btn {
 
 .back-btn,
 a.back-btn {
+  display: inline-block;
   background-color: $palette-white--1;
   border: 1px solid #cdcdcd;
   color: $palette-black--1;
   padding: 8px 32px;
+  border-radius: 100px;
+  font-size: 1.6rem;
+  text-decoration: none;
   &:hover {
     background-color: $palette-white--1;
     color: $palette-blue--1;
@@ -684,7 +688,6 @@ a.back-btn {
 
 .frm-box {
   margin: 0 auto;
-  max-width: 960px;
 }
 
 /* エラー ===== */
@@ -752,5 +755,20 @@ textarea {
       background-color: $color-bg--inpt-error;
       border-color: $color-border--inpt-error;
     }
+  }
+}
+
+@media screen and (min-width: $bp-md) {
+  .sbmt-btn,
+  a.sbmt-btn {
+    min-width: 300px;
+    font-size: 2.2rem;
+  }
+  .frm-btn-back {
+    margin: 0;
+    position: absolute;
+    top: 50%;
+    margin-top: -21px;
+    left: 0;
   }
 }

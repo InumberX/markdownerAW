@@ -8,12 +8,52 @@
   display: flex;
   align-items: center;
   overflow-x: auto;
-  padding: 4px 8px;
+  padding: 0 8px;
+  border-bottom: 1px solid $color-boder--inpt;
+  border-color: $color-boder--inpt;
+  background-color: $palette-gray--2;
+  opacity: 1;
+  position: sticky;
+  top: 0;
+  z-index: $z-index--2;
+  cursor: auto;
   &:before,
   &:after {
     content: none;
   }
-  a {
-    min-width: 30px;
+  &:hover {
+    opacity: 1;
   }
+  a {
+    min-width: 40px;
+    width: 40px;
+    height: 40px;
+    outline: 0;
+    border: none;
+    background-color: transparent;
+    &:before {
+      line-height: 40px;
+    }
+  }
+  &.disabled-for-preview {
+    a:not(.no-disable) {
+      background-color: transparent;
+      cursor: not-allowed;
+      opacity: 0.4;
+    }
+    + .CodeMirror {
+      cursor: auto;
+    }
+  }
+}
+
+.CodeMirror {
+  border-top: none;
+  border-color: $color-boder--inpt;
+  z-index: $z-index--1;
+  cursor: text;
+}
+
+.frm_editor-box {
+  min-height: 300px;
 }
