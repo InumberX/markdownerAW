@@ -35,8 +35,15 @@ export const getDbAllData = (tableName) => {
   const request = openDb(dbName, dbVersion);
   let result = [];
 
-  request.onsuccess = (event) => {
-   db = event.target.result;
+  // DBのバージョン更新(DBの新規作成も含む)時に実行される処理
+  request.onupgradeneeded = function (e) {
+   db = e.target.result;
+   // オブジェクトストア（テーブル）を作成
+   db.createObjectStore(tableName, { keyPath: 'id' });
+  };
+
+  request.onsuccess = (e) => {
+   db = e.target.result;
 
    // 現在のバージョンを更新
    dbVersion = db.version;
@@ -44,8 +51,8 @@ export const getDbAllData = (tableName) => {
    try {
     const transaction = db.transaction([tableName]);
     const objItem = transaction.objectStore(tableName);
-    objItem.openCursor().onsuccess = (event) => {
-     const row = event.target.result;
+    objItem.openCursor().onsuccess = (e) => {
+     const row = e.target.result;
      if (row) {
       result.push(row.value);
       row.continue();
@@ -65,7 +72,7 @@ export const getDbAllData = (tableName) => {
   };
 
   // エラー時の処理
-  request.onerror = (event) => {
+  request.onerror = (e) => {
    // 接続を解除する
    db.close();
 
@@ -126,15 +133,15 @@ const setDbData = (data, tableName) => {
   const request = openDb(dbName, dbVersion);
 
   // DBのバージョン更新(DBの新規作成も含む)時に実行される処理
-  request.onupgradeneeded = (event) => {
-   db = event.target.result;
+  request.onupgradeneeded = (e) => {
+   db = e.target.result;
    // オブジェクトストア（テーブル）を作成
    db.createObjectStore(tableName, { keyPath: 'id' });
   };
 
   //onupgradeneededの後に実行される処理（更新がない場合は本処理のみ実行）
-  request.onsuccess = (event) => {
-   db = event.target.result;
+  request.onsuccess = (e) => {
+   db = e.target.result;
 
    // 現在のバージョンを更新
    dbVersion = db.version;
@@ -150,7 +157,7 @@ const setDbData = (data, tableName) => {
   };
 
   // エラー時の処理
-  request.onerror = (event) => {
+  request.onerror = (e) => {
    // 接続を解除する
    db.close();
 

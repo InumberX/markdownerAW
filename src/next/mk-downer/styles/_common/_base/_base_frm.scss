@@ -628,9 +628,16 @@ a.sbmt-btn {
   max-width: 320px;
   min-width: 220px;
   text-decoration: none;
+  border-radius: 100px;
   &:hover {
     background-color: $palette-white--1;
     color: $palette-blue--1;
+    .styl-icon {
+      &:before,
+      &:after {
+        background-color: $palette-blue--1;
+      }
+    }
   }
   &.is-disabled {
     cursor: not-allowed;
@@ -655,6 +662,13 @@ a.sbmt-btn {
     border-left-color: $palette-blue--1;
     background-color: transparent;
     border-radius: 56px;
+  }
+  .styl-icon {
+    margin: 0 8px -1px 0;
+    &:before,
+    &:after {
+      background-color: $palette-white--1;
+    }
   }
 }
 

@@ -66,7 +66,7 @@ const Editor = (props) => {
     commonDb.dbTable.tMemo
    )
    .then((res) => {
-    // Router.push('/');
+    Router.push('/');
    })
    .catch((res) => {
     alert('保存に失敗しました');

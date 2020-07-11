@@ -1,5 +1,6 @@
 import Head from 'next/head';
 import Layout from '../components/common/layout';
+import MemoList from '../components/parts/memo_list';
 
 const Index = () => {
  return (
@@ -7,7 +8,13 @@ const Index = () => {
    <Head>
     <title>{process.env.siteName}</title>
    </Head>
-   <div className="inner">トップページ<br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /></div>
+   <section className="cnt-wrap">
+    <div className="inner">
+     <div className="cnt-box">
+      <MemoList />
+     </div>
+    </div>
+   </section>
   </Layout>
  );
 };
