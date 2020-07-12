@@ -36,7 +36,7 @@ export const getDbAllData = (tableName) => {
   let result = [];
 
   // DBのバージョン更新(DBの新規作成も含む)時に実行される処理
-  request.onupgradeneeded = function (e) {
+  request.onupgradeneeded = (e) => {
    db = e.target.result;
    // オブジェクトストア（テーブル）を作成
    db.createObjectStore(tableName, { keyPath: 'id' });
@@ -69,6 +69,57 @@ export const getDbAllData = (tableName) => {
 
     reject('error');
    }
+  };
+
+  // エラー時の処理
+  request.onerror = (e) => {
+   // 接続を解除する
+   db.close();
+
+   reject('error');
+  };
+ });
+};
+
+/*------------------------------------------
+ DBから情報を取得する処理
+--------------------------------------------*/
+export const getDbData = (id, tableName) => {
+ return new Promise((resolve, reject) => {
+  let db;
+
+  //　DB名を指定して接続（DBがなければ新規作成）
+  const request = openDb(dbName, dbVersion);
+
+  // DBのバージョン更新(DBの新規作成も含む)時に実行される処理
+  request.onupgradeneeded = (e) => {
+   db = e.target.result;
+   // オブジェクトストア（テーブル）を作成
+   db.createObjectStore(tableName, { keyPath: 'id' });
+  };
+
+  //onupgradeneededの後に実行される処理（更新がない場合は本処理のみ実行）
+  request.onsuccess = (e) => {
+   db = e.target.result;
+
+   // 現在のバージョンを更新
+   dbVersion = db.version;
+
+   const trans = db.transaction(tableName, 'readwrite');
+   const store = trans.objectStore(tableName);
+   const result = store.get(id);
+
+   result.onsuccess = (e) => {
+    // 接続を解除する
+    db.close();
+    resolve(e.target.result);
+   };
+
+   result.onerror = (e) => {
+    // 接続を解除する
+    db.close();
+    reject('error');
+   };
   };
 
   // エラー時の処理
@@ -181,14 +232,14 @@ export const deleteDbData = (id, tableName) => {
   const request = openDb(dbName, dbVersion);
 
   // DBのバージョン更新(DBの新規作成も含む)時に実行される処理
-  request.onupgradeneeded = function (e) {
+  request.onupgradeneeded = (e) => {
    db = e.target.result;
    // オブジェクトストア（テーブル）を作成
    db.createObjectStore(tableName, { keyPath: 'id' });
   };
 
   //onupgradeneededの後に実行される処理（更新がない場合は本処理のみ実行）
-  request.onsuccess = function (e) {
+  request.onsuccess = (e) => {
    db = e.target.result;
 
    // 現在のバージョンを更新
@@ -205,7 +256,7 @@ export const deleteDbData = (id, tableName) => {
   };
 
   // エラー時の処理
-  request.onerror = function (event) {
+  request.onerror = (e) => {
    // 接続を解除する
    db.close();
 

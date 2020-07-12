@@ -12,7 +12,7 @@ const Create = () => {
    <section className="cnt-wrap">
     <div className="inner">
      <div className="cnt-box">
-      <Editor id="1" />
+      <Editor />
      </div>
     </div>
    </section>

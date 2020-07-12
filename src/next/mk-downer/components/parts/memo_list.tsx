@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from 'react';
 import Link from 'next/link';
-import Router from 'next/router';
 import * as commonDb from '../../lib/common_db';
 
 const MemoList = () => {
@@ -11,7 +10,7 @@ const MemoList = () => {
   commonDb
    .getDbAllData(commonDb.dbTable.tMemo)
    .then((res) => {
-    setMemoList(res);
+    setMemoList(res.reverse());
     setFlgGetData(true);
    })
    .catch((res) => {});
@@ -56,7 +55,7 @@ const MemoList = () => {
        <div className="memo-list_btn-box">
         <ul className="memo-list-btn_items">
          <li className="memo-list-btn_item">
-          <Link href="/create/">
+          <Link href={'/show/?id=' + thisData.id}>
            <a className="memo-list_btn is-show">
             <i className="icon is-eye"></i>
             閲覧
@@ -64,7 +63,7 @@ const MemoList = () => {
           </Link>
          </li>
          <li className="memo-list-btn_item">
-          <Link href="/create/">
+          <Link href={'/edit/?id=' + thisData.id}>
            <a className="memo-list_btn is-edit">
             <i className="icon is-pencil"></i>
             編集
@@ -126,7 +125,7 @@ const MemoList = () => {
      commonDb
       .getDbAllData(commonDb.dbTable.tMemo)
       .then((res) => {
-       setMemoList(res);
+       setMemoList(res.reverse());
        alert('メモの削除が完了しました。');
       })
       .catch((res) => {});

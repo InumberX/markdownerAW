@@ -18,9 +18,15 @@ type Inputs = {
 const Editor = (props) => {
  const [title, setTitle] = useState('');
  const [content, setContent] = useState('');
+ const [flgEdit, setFlgEdit] = useState(false);
 
  useEffect(() => {
+  if (props.data.content != null && props.data.content !== '') {
+   setContent(props.data.content);
+  }
+
   let simplemde = new SimpleMDE({
+   element: document.getElementById('simplemde'),
    spellChecker: false,
    status: false,
    toolbar: [
@@ -45,11 +51,21 @@ const Editor = (props) => {
   simplemde.codemirror.on('change', function () {
    setContent(simplemde.value());
   });
+
+  if (props.data.title != null && props.data.title !== '') {
+   setFlgEdit(true);
+   setTitle(props.data.title);
+  }
+
+  if (props.data.content != null && props.data.content !== '') {
+   simplemde.value(props.data.content);
+  }
+
   return () => {
    simplemde.toTextArea();
    simplemde = null;
   };
- }, []);
+ }, [props.data]);
 
  const { register, handleSubmit, watch, errors } = useForm<Inputs>({
   mode: 'onBlur',
@@ -57,20 +73,40 @@ const Editor = (props) => {
 
  // 保存ボタン押下時の処理
  const save = (data, e) => {
-  commonDb
-   .insertDbData(
-    {
-     title: data.title,
-     content: data.content,
-    },
-    commonDb.dbTable.tMemo
-   )
-   .then((res) => {
-    Router.push('/');
-   })
-   .catch((res) => {
-    alert('保存に失敗しました');
-   });
+  if (!flgEdit) {
+   commonDb
+    .insertDbData(
+     {
+      title: data.title,
+      content: data.content,
+     },
+     commonDb.dbTable.tMemo
+    )
+    .then((res) => {
+     Router.push('/');
+    })
+    .catch((res) => {
+     alert('保存に失敗しました');
+    });
+  } else {
+   commonDb
+    .updateDbData(
+     {
+      id: props.data.id,
+      title: data.title,
+      content: data.content,
+      create_date: props.data.create_date,
+      update_date: props.data.update_date,
+     },
+     commonDb.dbTable.tMemo
+    )
+    .then((res) => {
+     alert('保存が完了しました');
+    })
+    .catch((res) => {
+     alert('保存に失敗しました');
+    });
+  }
  };
 
  return (
@@ -113,6 +149,7 @@ const Editor = (props) => {
         <fieldset className="frm_txar-box frm_editor-box">
          <label className="frm_lb">
           <textarea
+           id="simplemde"
            name="content"
            className="txar-editor-faker"
            value={content}

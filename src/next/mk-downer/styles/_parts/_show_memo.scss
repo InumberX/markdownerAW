@@ -1,0 +1,41 @@
+/* メモ閲覧 ========== */
+.show-memo_ttl-box {
+  margin-top: 16px;
+}
+.show-memo_ttl {
+  margin: 0;
+  padding: 0;
+  font-size: 1.8rem;
+  font-weight: 700;
+  box-sizing: border-box;
+}
+
+.show-memo_info-box {
+  padding: 0;
+  margin: 8px 0 0;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  flex-wrap: wrap;
+  color: $palette-gray--3;
+}
+
+.show-memo_btn-box {
+  margin-top: 8px;
+}
+
+@media screen and (min-width: $bp-md) {
+  .show-memo_info-and-btn-box {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    margin-top: 16px;
+  }
+  .show-memo_info-box {
+    margin-top: 0;
+  }
+  .show-memo_btn-box {
+    margin-top: 0;
+    margin-left: 16px;
+  }
+}
