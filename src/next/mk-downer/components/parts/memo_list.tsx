@@ -21,6 +21,122 @@ const MemoList = () => {
   };
  }, []);
 
+ const MemoListItem = (props) => {
+  let result = null;
+  let items = [];
+
+  if (props.data.length > 0) {
+   for (let i = 0, iLength = props.data.length; i < iLength; i = (i + 1) | 0) {
+    const thisData = props.data[i];
+    items.push(
+     <li className="memo-list_item" key={thisData.id}>
+      <div className="memo-list">
+       <div className="memo-list_ttl-box">
+        <h2 className="memo-list_ttl">{thisData.title}</h2>
+       </div>
+       <div className="memo-list_tx-box">
+        <p className="memo-list_tx">
+         <MemoListContent data={thisData.content} />
+        </p>
+       </div>
+       <div className="memo-list_info-box">
+        <dl className="memo-list_info">
+         <dt className="memo-list_info-ttl">更新</dt>
+         <dd className="memo-list_info-cnt">
+          {thisData.update_date.slice(0, -3)}
+         </dd>
+        </dl>
+        <dl className="memo-list_info">
+         <dt className="memo-list_info-ttl">作成</dt>
+         <dd className="memo-list_info-cnt">
+          {thisData.create_date.slice(0, -3)}
+         </dd>
+        </dl>
+       </div>
+       <div className="memo-list_btn-box">
+        <ul className="memo-list-btn_items">
+         <li className="memo-list-btn_item">
+          <Link href="/create/">
+           <a className="memo-list_btn is-show">
+            <i className="icon is-eye"></i>
+            閲覧
+           </a>
+          </Link>
+         </li>
+         <li className="memo-list-btn_item">
+          <Link href="/create/">
+           <a className="memo-list_btn is-edit">
+            <i className="icon is-pencil"></i>
+            編集
+           </a>
+          </Link>
+         </li>
+         <li className="memo-list-btn_item">
+          <button
+           name="memo_delete"
+           className="memo-list_btn is-delete"
+           onClick={(e) => deleteData(thisData.id)}
+          >
+           <i className="icon is-bin"></i>
+           削除
+          </button>
+         </li>
+        </ul>
+       </div>
+      </div>
+     </li>
+    );
+   }
+   result = (
+    <ul className="memo-list_items" key="memo-list">
+     {items}
+    </ul>
+   );
+  }
+
+  return result;
+ };
+
+ const MemoListContent = (props) => {
+  let result = null;
+  let items = [];
+  const content = props.data.replace(/\r?\n/g, '<br>').split('<br>');
+
+  if (content.length > 0) {
+   for (let i = 0, iLength = content.length; i < iLength; i = (i + 1) | 0) {
+    items.push(
+     <React.Fragment key={i}>
+      {content[i]}
+      <br />
+     </React.Fragment>
+    );
+   }
+   result = <>{items}</>;
+  }
+
+  return result;
+ };
+
+ // 削除ボタン押下時の処理
+ const deleteData = (id) => {
+  if (window.confirm('メモを削除します。よろしいですか？')) {
+   commonDb
+    .deleteDbData(id, commonDb.dbTable.tMemo)
+    .then((res) => {
+     commonDb
+      .getDbAllData(commonDb.dbTable.tMemo)
+      .then((res) => {
+       setMemoList(res);
+       alert('メモの削除が完了しました。');
+      })
+      .catch((res) => {});
+    })
+    .catch((res) => {
+     alert('メモの削除に失敗しました。');
+    });
+  }
+ };
+
  return (
   <div className="memo-list-box">
    {flgGetData && memoList.length === 0 && (
@@ -45,94 +161,6 @@ const MemoList = () => {
    {flgGetData && memoList.length > 0 && <MemoListItem data={memoList} />}
   </div>
  );
-};
-
-const MemoListItem = (props) => {
- let result = null;
- let items = [];
-
- if (props.data.length > 0) {
-  for (let i = 0, iLength = props.data.length; i < iLength; i = (i + 1) | 0) {
-   const thisData = props.data[i];
-   items.push(
-    <li className="memo-list_item" key={thisData.id}>
-     <div className="memo-list">
-      <div className="memo-list_ttl-box">
-       <h2 className="memo-list_ttl">{thisData.title}</h2>
-      </div>
-      <div className="memo-list_tx-box">
-       <p className="memo-list_tx">
-        <MemoListContent data={thisData.content} />
-       </p>
-      </div>
-      <div className="memo-list_info-box">
-       <dl className="memo-list_info">
-        <dt className="memo-list_info-ttl">更新</dt>
-        <dd className="memo-list_info-cnt">{thisData.update_date}</dd>
-       </dl>
-       <dl className="memo-list_info">
-        <dt className="memo-list_info-ttl">作成</dt>
-        <dd className="memo-list_info-cnt">{thisData.create_date}</dd>
-       </dl>
-      </div>
-      <div className="memo-list_btn-box">
-       <ul className="memo-list-btn_items">
-        <li className="memo-list-btn_item">
-         <Link href="/create/">
-          <a className="memo-list_btn is-show">
-           <i className="icon is-eye"></i>
-           閲覧
-          </a>
-         </Link>
-        </li>
-        <li className="memo-list-btn_item">
-         <Link href="/create/">
-          <a className="memo-list_btn is-edit">
-           <i className="icon is-pencil"></i>
-           編集
-          </a>
-         </Link>
-        </li>
-        <li className="memo-list-btn_item">
-         <button name="memo_delete" className="memo-list_btn is-delete">
-          <i className="icon is-bin"></i>
-          削除
-         </button>
-        </li>
-       </ul>
-      </div>
-     </div>
-    </li>
-   );
-  }
-  result = (
-   <ul className="memo-list_items" key="memo-list">
-    {items}
-   </ul>
-  );
- }
-
- return result;
-};
-
-const MemoListContent = (props) => {
- let result = null;
- let items = [];
- const content = props.data.replace(/\r?\n/g, '<br>').split('<br>');
-
- if (content.length > 0) {
-  for (let i = 0, iLength = content.length; i < iLength; i = (i + 1) | 0) {
-   items.push(
-    <React.Fragment key={i}>
-     {content[i]}
-     <br />
-    </React.Fragment>
-   );
-  }
-  result = <>{items}</>;
- }
-
- return result;
 };
 
 export default MemoList;
