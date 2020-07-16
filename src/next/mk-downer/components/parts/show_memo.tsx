@@ -13,8 +13,8 @@ const ShowMemo = (props) => {
  const [content, setContent] = useState('');
 
  useEffect(() => {
-  if (props.data.content != null) {
-   setContent(marked(props.data.content.replace(/\r?\n/g, '<br>')));
+  if (props.data != null && props.data.content != null) {
+   setContent(marked(props.data.content));
   }
  }, [props.data.content]);
 

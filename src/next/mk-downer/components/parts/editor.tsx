@@ -21,7 +21,11 @@ const Editor = (props) => {
  const [flgEdit, setFlgEdit] = useState(false);
 
  useEffect(() => {
-  if (props.data.content != null && props.data.content !== '') {
+  if (
+   props.data != null &&
+   props.data.content != null &&
+   props.data.content !== ''
+  ) {
    setContent(props.data.content);
   }
 
@@ -52,12 +56,20 @@ const Editor = (props) => {
    setContent(simplemde.value());
   });
 
-  if (props.data.title != null && props.data.title !== '') {
+  if (
+   props.data != null &&
+   props.data.title != null &&
+   props.data.title !== ''
+  ) {
    setFlgEdit(true);
    setTitle(props.data.title);
   }
 
-  if (props.data.content != null && props.data.content !== '') {
+  if (
+   props.data != null &&
+   props.data.content != null &&
+   props.data.content !== ''
+  ) {
    simplemde.value(props.data.content);
   }
 
