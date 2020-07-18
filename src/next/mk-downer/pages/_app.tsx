@@ -1,6 +1,10 @@
 import React, { useState, useEffect } from 'react';
 import '../styles/common.scss';
 import { AppProps } from 'next/app';
+import Router from 'next/router';
+import * as gtag from '../lib/gtag';
+
+Router.events.on('routeChangeComplete', (url) => gtag.pageview(url));
 
 /*------------------------------------------
  画面の向きを判定

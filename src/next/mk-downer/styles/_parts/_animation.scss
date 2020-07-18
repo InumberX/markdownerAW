@@ -1,0 +1,13 @@
+/* アニメーションs ========== */
+.fade-enter-active,
+.fade-leave-active {
+  transition: opacity 0.3s ease;
+}
+.fade-enter,
+.fade-leave-done {
+  opacity: 0 !important;
+}
+.fade-enter-done,
+.fade-leave {
+  opacity: 1 !important;
+}

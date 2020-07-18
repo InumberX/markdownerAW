@@ -5,8 +5,22 @@ import Router from 'next/router';
 import * as commonDb from '../lib/common_db';
 import ShowMemo from '../components/parts/show_memo';
 
-const Show = ({ query }) => {
- const id = parseInt(query.id, 10);
+const Show = () => {
+ let paramObj = {};
+ if (typeof window !== 'undefined') {
+  let param = window.location.search.substring(1).split('&');
+  for (let i = 0, iLength = param.length; i < iLength; i = (i + 1) | 0) {
+   const thisParam = param[i].split('=');
+   if (thisParam.length === 2) {
+    paramObj[thisParam[0]] = thisParam[1];
+   }
+  }
+ }
+ let id = -1;
+
+ if (paramObj['id'] != null && paramObj['id'] !== '') {
+  id = parseInt(paramObj['id'], 10);
+ }
 
  const [data, setData] = useState({});
 
@@ -40,10 +54,6 @@ const Show = ({ query }) => {
    </section>
   </Layout>
  );
-};
-
-Show.getInitialProps = ({ query }) => {
- return { query };
 };
 
 export default Show;

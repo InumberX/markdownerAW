@@ -1,7 +1,7 @@
 import Head from 'next/head';
-
 import Header from './header';
 import Footer from './footer';
+import { GA_TRACKING_ID } from '../../lib/gtag';
 
 const Layout = ({ children }: { children: React.ReactNode }) => {
  return (
@@ -21,6 +21,22 @@ const Layout = ({ children }: { children: React.ReactNode }) => {
     <link
      rel="apple-touch-icon"
      href={process.env.siteRootDir + '/img/favicon_180.png'}
+    />
+    <script
+     async
+     src={`https://www.googletagmanager.com/gtag/js?id=${GA_TRACKING_ID}`}
+    />
+    <script
+     dangerouslySetInnerHTML={{
+      __html: `
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+            gtag('config', '${GA_TRACKING_ID}', {
+              page_path: window.location.pathname,
+            });
+          `,
+     }}
     />
    </Head>
    <div className="wrap-all">
