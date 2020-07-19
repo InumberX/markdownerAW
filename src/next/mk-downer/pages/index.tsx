@@ -7,6 +7,11 @@ const Index = () => {
   <Layout>
    <Head>
     <title>{process.env.siteName}</title>
+    <meta property="og:title" content={process.env.siteName} />
+    <meta
+     property="og:url"
+     content={process.env.siteDomain + process.env.siteRootDir + '/'}
+    />
    </Head>
    <section className="cnt-wrap">
     <div className="inner">

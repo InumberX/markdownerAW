@@ -13,10 +13,19 @@ const Layout = ({ children }: { children: React.ReactNode }) => {
     />
     <meta httpEquiv="X-UA-Compatible" content="IE=edge" />
     <meta name="format-detection" content="telephone=no" />
+    <meta name="description" content={process.env.siteDescription} />
+    <meta property="og:type" content="website" />
     <meta
-     name="description"
-     content="マークダウンエディタ「mkDowner（マークダウナー）」です。マークダウン形式でのテキストの作成・保存ができます。"
+     property="og:image"
+     content={
+      process.env.siteDomain + process.env.siteRootDir + '/img/img_og.png'
+     }
     />
+    <meta property="og:site_name" content={process.env.siteName} />
+    <meta property="og:description" content={process.env.siteDescription} />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:site" content="@InumberX" />
+    <meta name="twitter:description" content={process.env.siteDescription} />
     <link rel="icon" href={process.env.siteRootDir + '/img/favicon.ico'} />
     <link
      rel="apple-touch-icon"

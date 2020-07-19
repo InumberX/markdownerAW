@@ -1,6 +1,8 @@
 const siteDomain = 'https://afterworks.jp';
 const siteRootDir = '/tools/mkd';
 const siteName = 'mkDowner';
+const siteDescription =
+ 'マークダウンエディタ「mkDowner（マークダウナー）」です。マークダウン形式でのテキストの作成・保存ができます。';
 
 const now = new Date();
 let year = now.getFullYear();
@@ -23,6 +25,7 @@ module.exports = {
   siteRootDir: siteRootDir,
   siteName: siteName,
   cashBuster: cashBuster,
+  siteDescription: siteDescription,
  },
  assetPrefix: siteRootDir,
  experimental: {

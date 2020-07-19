@@ -7,6 +7,14 @@ const Custom404 = () => {
   <Layout>
    <Head>
     <title>お探しのページが見つかりません | {process.env.siteName}</title>
+    <meta
+     property="og:title"
+     content={'お探しのページが見つかりません | ' + process.env.siteName}
+    />
+    <meta
+     property="og:url"
+     content={process.env.siteDomain + process.env.siteRootDir + '/404/'}
+    />
    </Head>
    <section className="cnt-wrap">
     <div className="inner">

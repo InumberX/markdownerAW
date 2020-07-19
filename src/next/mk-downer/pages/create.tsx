@@ -8,6 +8,11 @@ const Create = () => {
   <Layout>
    <Head>
     <title>新規作成 | {process.env.siteName}</title>
+    <meta property="og:title" content={'新規作成 | ' + process.env.siteName} />
+    <meta
+     property="og:url"
+     content={process.env.siteDomain + process.env.siteRootDir + '/create/'}
+    />
    </Head>
    <section className="cnt-wrap">
     <div className="inner">

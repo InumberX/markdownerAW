@@ -45,6 +45,11 @@ const Edit = () => {
   <Layout>
    <Head>
     <title>編集 | {process.env.siteName}</title>
+    <meta property="og:title" content={'編集 | ' + process.env.siteName} />
+    <meta
+     property="og:url"
+     content={process.env.siteDomain + process.env.siteRootDir + '/edit/'}
+    />
    </Head>
    <section className="cnt-wrap">
     <div className="inner">
