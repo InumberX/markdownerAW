@@ -4,6 +4,7 @@ import React, { useState, useEffect } from 'react';
 import Router from 'next/router';
 import * as commonDb from '../lib/common_db';
 import Editor from '../components/parts/editor';
+import AdsenseList from '../components/parts/adsense_list';
 
 const Edit = () => {
  let paramObj = {};
@@ -45,17 +46,31 @@ const Edit = () => {
   <Layout>
    <Head>
     <title>編集 | {process.env.siteName}</title>
-    <meta property="og:title" content={'編集 | ' + process.env.siteName} />
+    <meta
+     property="og:title"
+     content={'編集 | ' + process.env.siteName}
+     key="ogTitle"
+    />
     <meta
      property="og:url"
      content={process.env.siteDomain + process.env.siteRootDir + '/edit/'}
+     key="ogUrl"
     />
    </Head>
-   <section className="cnt-wrap">
-    <div className="inner">
-     <div className="cnt-box">{data.id != null && <Editor data={data} />}</div>
-    </div>
-   </section>
+   <>
+    <section className="cnt-wrap">
+     <div className="inner">
+      <div className="cnt-box">{data.id != null && <Editor data={data} />}</div>
+     </div>
+    </section>
+    <section className="cnt-wrap">
+     <div className="inner">
+      <div className="cnt-box">
+       <AdsenseList />
+      </div>
+     </div>
+    </section>
+   </>
   </Layout>
  );
 };

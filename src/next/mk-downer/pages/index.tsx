@@ -1,6 +1,7 @@
 import Head from 'next/head';
 import Layout from '../components/common/layout';
 import MemoList from '../components/parts/memo_list';
+import AdsenseList from '../components/parts/adsense_list';
 
 const Index = () => {
  return (
@@ -13,13 +14,22 @@ const Index = () => {
      content={process.env.siteDomain + process.env.siteRootDir + '/'}
     />
    </Head>
-   <section className="cnt-wrap">
-    <div className="inner">
-     <div className="cnt-box">
-      <MemoList />
+   <>
+    <section className="cnt-wrap">
+     <div className="inner">
+      <div className="cnt-box">
+       <MemoList />
+      </div>
      </div>
-    </div>
-   </section>
+    </section>
+    <section className="cnt-wrap">
+     <div className="inner">
+      <div className="cnt-box">
+       <AdsenseList />
+      </div>
+     </div>
+    </section>
+   </>
   </Layout>
  );
 };

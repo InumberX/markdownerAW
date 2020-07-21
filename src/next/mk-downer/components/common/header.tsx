@@ -91,7 +91,13 @@ const Header = () => {
        </li>
       </ul>
       <div className="hd_page-top-box">
-       <a href="#" className="hd_page-top-link" onClick={scrollToTop}>
+       <a
+        href="#"
+        className="hd_page-top-link"
+        onClick={scrollToTop}
+        title="トップへ戻る"
+        aria-label="トップへ戻る"
+       >
         <i className="styl-icon is-arrow is-up"></i>
        </a>
       </div>

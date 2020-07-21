@@ -1,0 +1,61 @@
+/* 広告 ========== */
+.ads-list_items {
+  margin: 56px 0 0;
+  padding: 0;
+  list-style: none;
+  .ads-list_item {
+    &:first-of-type {
+      margin-top: 0;
+    }
+  }
+}
+.ads-list_item {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 24px auto 0;
+  padding: 0;
+  box-sizing: content-box;
+  width: 100%;
+  max-width: 300px;
+  height: 300px;
+  max-height: 300px;
+}
+
+@media screen and (min-width: $bp-sm) {
+  .ads-list_items {
+    margin-top: 80px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+  .ads-list_item {
+    padding: 16px;
+    margin: 0;
+  }
+}
+
+@media screen and (min-width: $bp-lg) {
+  .ads-list_item {
+    width: calc(100% / 3);
+  }
+  .ads-list-side {
+    width: 300px;
+    margin-left: 32px;
+    .ads-list_items {
+      margin-top: 0;
+      display: block;
+      .ads-list_item {
+        &:first-of-type {
+          margin-top: 0;
+        }
+      }
+    }
+    .ads-list_item {
+      width: 300px;
+      padding: 0;
+      margin-top: 16px;
+    }
+  }
+}

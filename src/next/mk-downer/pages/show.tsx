@@ -44,10 +44,15 @@ const Show = () => {
   <Layout>
    <Head>
     <title>閲覧 | {process.env.siteName}</title>
-    <meta property="og:title" content={'閲覧 | ' + process.env.siteName} />
+    <meta
+     property="og:title"
+     content={'閲覧 | ' + process.env.siteName}
+     key="ogTitle"
+    />
     <meta
      property="og:url"
      content={process.env.siteDomain + process.env.siteRootDir + '/show/'}
+     key="ogUrl"
     />
    </Head>
    <section className="cnt-wrap">
