@@ -3,6 +3,7 @@ import '../styles/common.scss';
 import { AppProps } from 'next/app';
 import Router from 'next/router';
 import * as gtag from '../lib/gtag';
+import { register, unregister } from 'next-offline/runtime';
 
 Router.events.on('routeChangeComplete', (url) => gtag.pageview(url));
 
@@ -58,6 +59,8 @@ function setOrientationClass() {
 const App = ({ Component, pageProps }: AppProps) => {
  useEffect(() => {
   initOrientation();
+  register();
+  return unregister();
  }, []);
 
  return <Component {...pageProps} />;

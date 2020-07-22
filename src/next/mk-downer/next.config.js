@@ -18,7 +18,7 @@ let second = now.getSeconds();
 second = ('0' + second).slice(-2);
 const cashBuster = '?ver=' + year + month + day + hour + minute + second;
 
-module.exports = {
+const nextConfig = {
  exportTrailingSlash: true,
  env: {
   siteDomain: siteDomain,
@@ -27,7 +27,7 @@ module.exports = {
   cashBuster: cashBuster,
   siteDescription: siteDescription,
  },
- assetPrefix: siteRootDir,
+ assetPrefix: siteRootDir + '/',
  experimental: {
   basePath: siteRootDir,
  },
@@ -53,4 +53,34 @@ module.exports = {
    },
   };
  },
+ target: 'serverless',
+ transformManifest: (manifest) => ['/'].concat(manifest),
+ generateInDevMode: false,
+ registerSwPrefix: siteRootDir + '/',
+ scope: siteRootDir + '/',
+ workboxOpts: {
+  runtimeCaching: [
+   {
+    urlPattern: /^https?.*/,
+    handler: 'NetworkFirst',
+    options: {
+     cacheName: 'https-calls',
+     networkTimeoutSeconds: 15,
+     expiration: {
+      maxEntries: 150,
+      maxAgeSeconds: 30 * 24 * 60 * 60, // 1 month
+     },
+     cacheableResponse: {
+      statuses: [0, 200],
+     },
+    },
+   },
+  ],
+ },
 };
+
+// withOfflineを読み込む
+const withOffline = require('next-offline');
+
+// nextConfigをwithOfflineに渡す
+module.exports = withOffline(nextConfig);
