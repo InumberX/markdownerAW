@@ -1,6 +1,5 @@
 /* 共通 ========== */
 html {
-  width: 100%;
   height: 100%;
   line-height: 1;
   background-color: $color-bg--main;
@@ -11,22 +10,14 @@ head {
   display: none;
 }
 body {
-  width: 100%;
-  min-height: 100%;
   margin: 0;
   padding: 0;
   border: 0;
   font-size: 1rem;
   line-height: 1.6;
-  overflow-y: scroll;
   font-family: $font-family;
   word-break: break-all;
   -webkit-text-size-adjust: 100%;
-  background-repeat: no-repeat;
-  background-position: top center;
-  -webkit-background-size: cover;
-  background-size: cover;
-  background-attachment: fixed;
   background-color: $color-bg--main;
   &.is-head-menu-open,
   &.is-modal-open {

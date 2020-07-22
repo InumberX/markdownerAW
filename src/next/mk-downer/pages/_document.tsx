@@ -6,11 +6,6 @@ class Document extends NextDocument {
   return (
    <Html lang="ja">
     <Head>
-     <meta
-      name="viewport"
-      content="width=device-width, initial-scale=1.0,minimum-scale=1.0,shrink-to-fit=no,viewport-fit=cover"
-      key="viewport"
-     />
      <meta httpEquiv="X-UA-Compatible" content="IE=edge" key="xUaCompatible" />
      <meta
       name="format-detection"
@@ -87,9 +82,7 @@ class Document extends NextDocument {
      />
      <link
       rel="manifest"
-      href={
-       process.env.siteRootDir + '/manifest.json' + process.env.cashBuster
-      }
+      href={process.env.siteRootDir + '/manifest.json' + process.env.cashBuster}
       key="manifest"
      />
      <meta name="theme-color" content="#0070f3" key="themeColor" />
