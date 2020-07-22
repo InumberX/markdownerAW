@@ -3,11 +3,15 @@
   margin-top: 16px;
 }
 .show-memo_ttl {
+  display: block;
   margin: 0;
-  padding: 0;
-  font-size: 1.8rem;
+  padding: 4px 8px;
+  font-size: 2.2rem;
   font-weight: 700;
   box-sizing: border-box;
+  background-color: $palette-gray--2;
+  border: 2px solid $palette-gray--1;
+  border-radius: 6px;
 }
 
 .show-memo_info-box {
@@ -22,6 +26,12 @@
 
 .show-memo_btn-box {
   margin-top: 8px;
+}
+
+@media screen and (min-width: $bp-sm) {
+  .show-memo_ttl {
+    font-size: 2.8rem;
+  }
 }
 
 @media screen and (min-width: $bp-md) {
