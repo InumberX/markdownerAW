@@ -56,7 +56,7 @@ const nextConfig = {
  target: 'serverless',
  transformManifest: (manifest) => ['/'].concat(manifest),
  generateInDevMode: false,
- registerSwPrefix: siteRootDir + '/',
+ registerSwPrefix: siteRootDir,
  scope: siteRootDir + '/',
  workboxOpts: {
   runtimeCaching: [
