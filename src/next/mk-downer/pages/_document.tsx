@@ -57,11 +57,11 @@ class Document extends NextDocument {
       key="appleTouchIcon"
      />
      <script
-      src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"
       data-ad-client="ca-pub-6711167987812480"
       async
+      src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"
       key="ads"
-     />
+     ></script>
      <script
       async
       src={`https://www.googletagmanager.com/gtag/js?id=${GA_TRACKING_ID}`}
