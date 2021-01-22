@@ -27,7 +27,7 @@ const nextConfig = {
   cashBuster: cashBuster,
   siteDescription: siteDescription,
  },
- assetPrefix: siteRootDir + '/',
+ // assetPrefix: siteRootDir + '/',
  experimental: {
   basePath: siteRootDir,
  },
