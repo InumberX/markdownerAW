@@ -1,4 +1,4 @@
-const siteDomain = 'https://markdw.netlify.app';
+const siteDomain = 'https://mk-downer.netlify.app';
 const siteRootDir = '';
 const siteName = 'mkDowner';
 const siteDescription =
