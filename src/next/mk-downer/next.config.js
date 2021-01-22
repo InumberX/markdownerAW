@@ -1,5 +1,5 @@
-const siteDomain = 'https://afterworks.jp';
-const siteRootDir = '/tools/mkd';
+const siteDomain = 'https://markdw.netlify.app';
+const siteRootDir = '';
 const siteName = 'mkDowner';
 const siteDescription =
  'マークダウンエディタ「mkDowner（マークダウナー）」です。マークダウン形式でのテキストの作成・保存ができます。';
