@@ -28,6 +28,7 @@ const Create = () => {
       </div>
      </div>
     </section>
+    {/*
     <section className="cnt-wrap">
      <div className="inner">
       <div className="cnt-box">
@@ -35,6 +36,7 @@ const Create = () => {
       </div>
      </div>
     </section>
+    */}
    </>
   </Layout>
  );

@@ -85,9 +85,11 @@ const ShowMemo = (props) => {
         className="mkd-box"
         dangerouslySetInnerHTML={{ __html: content }}
        ></div>
+       {/*
        <aside className="ads-list-side">
         <AdsenseList />
        </aside>
+       */}
       </div>
      </div>
     </>

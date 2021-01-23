@@ -22,6 +22,7 @@ const Index = () => {
       </div>
      </div>
     </section>
+    {/*
     <section className="cnt-wrap">
      <div className="inner">
       <div className="cnt-box">
@@ -29,6 +30,7 @@ const Index = () => {
       </div>
      </div>
     </section>
+    */}
    </>
   </Layout>
  );

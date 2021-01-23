@@ -16,6 +16,12 @@
 }
 @media screen and (min-width: $bp-sm) {
   .ft-wrap {
+    margin-top: 56px;
     padding-bottom: 0;
+  }
+}
+@media screen and (min-width: $bp-md) {
+  .ft-wrap {
+    margin-top: 80px;
   }
 }

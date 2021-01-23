@@ -63,6 +63,7 @@ const Edit = () => {
       <div className="cnt-box">{data.id != null && <Editor data={data} />}</div>
      </div>
     </section>
+    {/*
     <section className="cnt-wrap">
      <div className="inner">
       <div className="cnt-box">
@@ -70,6 +71,7 @@ const Edit = () => {
       </div>
      </div>
     </section>
+    */}
    </>
   </Layout>
  );
