@@ -64,7 +64,7 @@ const nextConfig = {
     urlPattern: /^https?.*/,
     handler: 'NetworkFirst',
     options: {
-     cacheName: 'https-calls',
+     cacheName: 'mk-downer-v' + cashBuster,
      networkTimeoutSeconds: 15,
      expiration: {
       maxEntries: 150,
