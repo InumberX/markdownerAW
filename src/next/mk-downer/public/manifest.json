@@ -4,8 +4,8 @@
  "theme_color": "#0070f3",
  "background_color": "#ffffff",
  "display": "standalone",
- "scope": "/tools/mkd/",
- "start_url": "/tools/mkd/",
+ "scope": "/",
+ "start_url": "/",
  "icons": [
   {
    "src": "img/favicon_72.png",
